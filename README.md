@@ -8,7 +8,7 @@ rather than guessing.
 Point it at your own material too: the talks you attended, the articles you saved,
 your team's internal writing. Your sources stay yours.
 
-![Compendium answering an architecture question, with the reasoning panel open](docs/images/answer_ecs.png)
+![Compendium answering a question about optimising imported 3D assets — the words it searched for, the ones it set aside and why, and which passages the answer used](docs/images/answer_optimize3d.png)
 
 ---
 
