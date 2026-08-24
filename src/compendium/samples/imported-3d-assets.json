@@ -1,0 +1,179 @@
+{
+  "question": "How do I optimize performance from externally imported 3D model assets?",
+  "answer": "The excerpts provide several concrete optimization strategies for imported 3D model assets:\n\n**Mesh Structure Optimization:**\n- Use the Flyweight pattern to share mesh and texture data across multiple instances [2]. Rather than storing the same mesh thousands of times, create a shared model object that all instances reference, keeping only instance-specific data (position, color variations) separate.\n- Merge meshes and materials wherever possible [8].\n\n**Geometry Reduction:**\n- Remove hidden triangles and internal geometry that aren't visible [8]. This is \"almost always worth it\" even if it requires extra work.\n- Create LODs (Levels of Detail) with consideration for triangle sizes and shapes [8].\n- For distant objects, approach optimization through remeshing rather than just removing triangles [8].\n\n**Processing Pipeline:**\n- Use meshoptimizer library for clusterization, partitioning, and simplification [4]. It provides algorithms optimized for either rasterization or raytracing.\n- Apply spatial sorting of triangles (meshopt_spatialSortTriangles) to improve content pipeline performance [1].\n- Consider vertex and index reordering for GPU cache efficiency [6].\n\n**Production Workflow:**\n- If using modular/kitbashed content, have tools and strategies to handle asset fitting together to avoid manual fixes post-optimization [8].\n\nHowever, be aware that processing very large assets can be memory-intensive—even dedicated tools may struggle with massive geometry files [4].",
+  "abstained": false,
+  "citations": [
+    {
+      "marker": 1,
+      "title": "Billions of Triangles in Minutes",
+      "url": "https://zeux.io/2025/09/30/billions-of-triangles-in-minutes",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 2,
+      "title": "Flyweight Pattern",
+      "url": "https://gameprogrammingpatterns.com/flyweight.html",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 4,
+      "title": "Billions of Triangles in Minutes",
+      "url": "https://zeux.io/2025/09/30/billions-of-triangles-in-minutes",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 6,
+      "title": "Float Compression 4: Mesh Optimizer",
+      "url": "https://aras-p.info/blog/2023/02/02/Float-Compression-4-Mesh-Optimizer",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 8,
+      "title": "Art Optimization: How Fatshark Built Their Central Asset Pipeline",
+      "url": "https://youtube.com/watch?v=RZxo-2cAFk0&t=2718s",
+      "timestamp": "45:18",
+      "transcript_kind": "manual"
+    }
+  ],
+  "terms": [
+    {
+      "term": "externally",
+      "doc_freq": 0,
+      "kept": true
+    },
+    {
+      "term": "model",
+      "doc_freq": 0,
+      "kept": true
+    },
+    {
+      "term": "assets",
+      "doc_freq": 0,
+      "kept": true
+    },
+    {
+      "term": "optimize",
+      "doc_freq": 350,
+      "kept": false
+    },
+    {
+      "term": "performance",
+      "doc_freq": 493,
+      "kept": false
+    },
+    {
+      "term": "imported",
+      "doc_freq": 448,
+      "kept": false
+    }
+  ],
+  "passages": [
+    {
+      "marker": 1,
+      "title": "Billions of Triangles in Minutes",
+      "url": "https://zeux.io/2025/09/30/billions-of-triangles-in-minutes",
+      "timestamp": "-",
+      "matched_terms": 2,
+      "score": 0.0272,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.469
+    },
+    {
+      "marker": 2,
+      "title": "Flyweight Pattern",
+      "url": "https://gameprogrammingpatterns.com/flyweight.html",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0221,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.426
+    },
+    {
+      "marker": 3,
+      "title": "Godot Engine Documentation (stable)",
+      "url": "https://docs.godotengine.org/en/stable",
+      "timestamp": "-",
+      "matched_terms": 2,
+      "score": 0.0164,
+      "used": false,
+      "transcript_kind": null,
+      "found_by": "words",
+      "similarity": null
+    },
+    {
+      "marker": 4,
+      "title": "Billions of Triangles in Minutes",
+      "url": "https://zeux.io/2025/09/30/billions-of-triangles-in-minutes",
+      "timestamp": "-",
+      "matched_terms": 0,
+      "score": 0.0164,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "meaning",
+      "similarity": 0.527
+    },
+    {
+      "marker": 5,
+      "title": "Handmade Hero — Episode Guide",
+      "url": "https://guide.handmadehero.org/",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0161,
+      "used": false,
+      "transcript_kind": null,
+      "found_by": "words",
+      "similarity": null
+    },
+    {
+      "marker": 6,
+      "title": "Float Compression 4: Mesh Optimizer",
+      "url": "https://aras-p.info/blog/2023/02/02/Float-Compression-4-Mesh-Optimizer",
+      "timestamp": "-",
+      "matched_terms": 0,
+      "score": 0.0161,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "meaning",
+      "similarity": 0.49
+    },
+    {
+      "marker": 7,
+      "title": "Stress-Free Game Development: Powering Up Your Studio With DevOps",
+      "url": "https://youtube.com/watch?v=0jMOONXg29c&t=446s",
+      "timestamp": "7:26",
+      "matched_terms": 1,
+      "score": 0.0159,
+      "used": false,
+      "transcript_kind": "auto",
+      "found_by": "words",
+      "similarity": null
+    },
+    {
+      "marker": 8,
+      "title": "Art Optimization: How Fatshark Built Their Central Asset Pipeline",
+      "url": "https://youtube.com/watch?v=RZxo-2cAFk0&t=2718s",
+      "timestamp": "45:18",
+      "matched_terms": 0,
+      "score": 0.0159,
+      "used": true,
+      "transcript_kind": "manual",
+      "found_by": "meaning",
+      "similarity": 0.482
+    }
+  ],
+  "tokens_in": 4232,
+  "tokens_out": 326,
+  "cost_usd": 0.005862,
+  "elapsed_ms": 7334,
+  "trace": null,
+  "cached": true,
+  "recorded_for_user": "test1"
+}

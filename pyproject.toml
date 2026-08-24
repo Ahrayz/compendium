@@ -1,0 +1,50 @@
+[project]
+name = "compendium"
+version = "0.1.0"
+description = "Game dev knowledge mentor — answers grounded in freely-available talks, open books and public dev writing, every claim deep-linked to its source."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "psycopg[binary,pool]>=3.2",
+    "pgvector>=0.3",
+    "httpx>=0.27",
+    "anthropic>=0.40",
+    "openai>=1.54",
+    # Ingestion-only. Focused tools, not frameworks: a caption client and a
+    # tokenizer. token_count is a stored column, so the tokenizer choice is a
+    # backfill if changed later.
+    "youtube-transcript-api>=1.0",
+    "tiktoken>=0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/compendium"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+# Ruff formats Python blocks inside Markdown. The textbook aligns comments on
+# purpose to make the examples readable, so leave prose files alone.
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["src"]

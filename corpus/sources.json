@@ -1,0 +1,1499 @@
+{
+  "_comment": [
+    "Curated source manifest for Compendium. This is the curation decision itself —",
+    "'the value is in what you left out' — so it lives in git. Corpus *text* does not.",
+    "",
+    "Every entry is permitted under the corpus rules in README.md. Nothing from GDC",
+    "Vault, published books, or paid postmortems. Entries that are denied by policy",
+    "are kept rather than deleted, so the rule is visible on every ingest instead of",
+    "being assumed.",
+    "",
+    "Deliberately flat and denormalised. This is data, not schema.",
+    "",
+    "Run corpus/verify_sources.py before trusting any URL in this file."
+  ],
+  "sources": [
+    {
+      "url": "https://gameprogrammingpatterns.com/contents.html",
+      "kind": "book",
+      "title": "Game Programming Patterns — Contents",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "thin_ok": true,
+      "note": "Full text free online by the author. Table of contents; entry point for the chapter set. Short by design — a hub, not an article."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/architecture-performance-and-games.html",
+      "kind": "book",
+      "title": "Architecture, Performance, and Games",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "The abstraction-vs-performance tradeoff. Directly feeds the disagreement feature."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/command.html",
+      "kind": "book",
+      "title": "Command Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Undo/redo and input remapping."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/flyweight.html",
+      "kind": "book",
+      "title": "Flyweight Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Memory sharing for large instance counts."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/observer.html",
+      "kind": "book",
+      "title": "Observer Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Includes a rare honest critique of the pattern's costs."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/prototype.html",
+      "kind": "book",
+      "title": "Prototype Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Spawners and data modelling."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/singleton.html",
+      "kind": "book",
+      "title": "Singleton Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "An argument AGAINST a pattern. High-value disagreement material."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/state.html",
+      "kind": "book",
+      "title": "State Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "FSMs, pushdown automata, hierarchical state machines."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/double-buffer.html",
+      "kind": "book",
+      "title": "Double Buffer",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Frame coherence and tearing."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/game-loop.html",
+      "kind": "book",
+      "title": "Game Loop",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Pairs with Fiedler 'Fix Your Timestep' — deliberate overlap for cross-source comparison."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/update-method.html",
+      "kind": "book",
+      "title": "Update Method",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Per-entity simulation stepping."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/bytecode.html",
+      "kind": "book",
+      "title": "Bytecode",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Data-driven behaviour and embedded VMs."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/subclass-sandbox.html",
+      "kind": "book",
+      "title": "Subclass Sandbox",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Inheritance done deliberately."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/type-object.html",
+      "kind": "book",
+      "title": "Type Object",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Data-defined types without a class explosion."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/component.html",
+      "kind": "book",
+      "title": "Component Pattern",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "The ECS-vs-OOP debate's canonical starting point. Core disagreement fuel."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/event-queue.html",
+      "kind": "book",
+      "title": "Event Queue",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Decoupling in time, and the debugging cost of doing so."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/service-locator.html",
+      "kind": "book",
+      "title": "Service Locator",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Global access with a seam. Contested pattern."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/data-locality.html",
+      "kind": "book",
+      "title": "Data Locality",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Cache behaviour. Pairs with Acton's data-oriented design position."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/dirty-flag.html",
+      "kind": "book",
+      "title": "Dirty Flag",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Deferred recomputation, transform hierarchies."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/object-pool.html",
+      "kind": "book",
+      "title": "Object Pool",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Allocation churn and fragmentation."
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/spatial-partition.html",
+      "kind": "book",
+      "title": "Spatial Partition",
+      "author": "Robert Nystrom",
+      "published_at": "2014-11-02",
+      "license": "free-online",
+      "note": "Grids, BSPs, quadtrees for broad-phase queries."
+    },
+    {
+      "url": "https://gafferongames.com/post/fix_your_timestep/",
+      "kind": "blog",
+      "title": "Fix Your Timestep!",
+      "author": "Glenn Fiedler",
+      "published_at": "2004-06-10",
+      "license": "public-blog",
+      "note": "Canonical. Conflicts productively with the Game Loop chapter."
+    },
+    {
+      "url": "https://gafferongames.com/post/integration_basics/",
+      "kind": "blog",
+      "title": "Integration Basics",
+      "author": "Glenn Fiedler",
+      "published_at": "2004-06-01",
+      "license": "public-blog",
+      "note": "Euler vs RK4 for game physics."
+    },
+    {
+      "url": "https://gafferongames.com/post/what_every_programmer_needs_to_know_about_game_networking/",
+      "kind": "blog",
+      "title": "What Every Programmer Needs To Know About Game Networking",
+      "author": "Glenn Fiedler",
+      "published_at": "2010-01-24",
+      "license": "public-blog",
+      "note": "Directly serves the stated persona: netcode desync at 11pm."
+    },
+    {
+      "url": "https://gafferongames.com/post/udp_vs_tcp/",
+      "kind": "blog",
+      "title": "UDP vs. TCP",
+      "author": "Glenn Fiedler",
+      "published_at": "2008-10-01",
+      "license": "public-blog",
+      "note": "Transport choice for realtime games."
+    },
+    {
+      "url": "https://gafferongames.com/post/deterministic_lockstep/",
+      "kind": "blog",
+      "title": "Deterministic Lockstep",
+      "author": "Glenn Fiedler",
+      "published_at": "2014-11-24",
+      "license": "public-blog",
+      "note": "Desync root-cause material. Conflicts with state-sync approaches."
+    },
+    {
+      "url": "https://gafferongames.com/post/state_synchronization/",
+      "kind": "blog",
+      "title": "State Synchronization",
+      "author": "Glenn Fiedler",
+      "published_at": "2015-01-05",
+      "license": "public-blog",
+      "note": "The opposing view to deterministic lockstep. Explicit disagreement pair."
+    },
+    {
+      "url": "https://gafferongames.com/post/snapshot_interpolation/",
+      "kind": "blog",
+      "title": "Snapshot Interpolation",
+      "author": "Glenn Fiedler",
+      "published_at": "2014-11-27",
+      "license": "public-blog",
+      "note": "Bandwidth vs latency tradeoff."
+    },
+    {
+      "url": "https://gafferongames.com/post/reliable_ordered_messages/",
+      "kind": "blog",
+      "title": "Reliable Ordered Messages",
+      "author": "Glenn Fiedler",
+      "published_at": "2016-09-14",
+      "license": "public-blog",
+      "note": "Building reliability on UDP."
+    },
+    {
+      "url": "https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking",
+      "kind": "docs",
+      "title": "Source Multiplayer Networking",
+      "author": "Valve",
+      "published_at": null,
+      "license": "public-wiki",
+      "fetch": "manual",
+      "note": "Lag compensation and client-side prediction from a shipped engine. Behind an Anubis proof-of-work bot wall: a human can read it, an automated fetch gets a 200 and a challenge page. Valid as a citation target; text must be captured by hand if it is ever ingested."
+    },
+    {
+      "url": "https://developer.valvesoftware.com/wiki/Latency_Compensating_Methods_in_Client/Server_In-game_Protocol_Design_and_Optimization",
+      "kind": "docs",
+      "title": "Latency Compensating Methods in Client/Server In-game Protocol Design",
+      "author": "Yahn Bernier (Valve)",
+      "published_at": "2001-01-01",
+      "license": "public-wiki",
+      "fetch": "manual",
+      "note": "The original lag-compensation paper, hosted publicly by Valve. Same Anubis bot wall as the Source networking page."
+    },
+    {
+      "url": "https://fgiesen.wordpress.com/2011/07/09/a-trip-through-the-graphics-pipeline-2011-index/",
+      "kind": "blog",
+      "title": "A Trip Through the Graphics Pipeline 2011 — Index",
+      "author": "Fabian Giesen",
+      "published_at": "2011-07-09",
+      "license": "public-blog",
+      "note": "13-part GPU pipeline series. Deep-linkable per part."
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM",
+      "kind": "repo",
+      "title": "DOOM source code",
+      "author": "id Software",
+      "published_at": "1997-12-23",
+      "license": "released-source",
+      "note": "Released by the rights holder."
+    },
+    {
+      "url": "https://github.com/id-Software/Quake",
+      "kind": "repo",
+      "title": "Quake source code",
+      "author": "id Software",
+      "published_at": "1999-12-21",
+      "license": "GPL-2.0",
+      "note": "Released by the rights holder."
+    },
+    {
+      "url": "https://github.com/id-Software/Quake-III-Arena",
+      "kind": "repo",
+      "title": "Quake III Arena source code",
+      "author": "id Software",
+      "published_at": "2005-08-19",
+      "license": "GPL-2.0",
+      "note": "Home of the fast inverse square root; heavily commented on publicly."
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM-3",
+      "kind": "repo",
+      "title": "DOOM 3 source code",
+      "author": "id Software",
+      "published_at": "2011-11-22",
+      "license": "GPL-3.0",
+      "note": "Widely cited as an exemplar C++ codebase."
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM-3-BFG",
+      "kind": "repo",
+      "title": "DOOM 3 BFG Edition source code",
+      "author": "id Software",
+      "published_at": "2012-11-26",
+      "license": "GPL-3.0",
+      "note": "Multithreaded rewrite; good contrast against original DOOM 3."
+    },
+    {
+      "url": "https://github.com/id-Software/wolf3d",
+      "kind": "repo",
+      "title": "Wolfenstein 3D source code",
+      "author": "id Software",
+      "published_at": "2012-01-01",
+      "license": "released-source",
+      "note": "Raycasting era."
+    },
+    {
+      "url": "https://fabiensanglard.net/quake3/",
+      "kind": "blog",
+      "title": "Quake 3 Source Code Review",
+      "author": "Fabien Sanglard",
+      "published_at": "2012-01-01",
+      "license": "public-blog",
+      "note": "Public commentary on released source — explicitly permitted."
+    },
+    {
+      "url": "https://fabiensanglard.net/doom3/",
+      "kind": "blog",
+      "title": "DOOM 3 Source Code Review",
+      "author": "Fabien Sanglard",
+      "published_at": "2012-01-01",
+      "license": "public-blog",
+      "note": "Includes the widely-quoted id C++ style commentary."
+    },
+    {
+      "url": "https://fabiensanglard.net/doomIphone/",
+      "kind": "blog",
+      "title": "DOOM iPhone Source Code Review",
+      "author": "Fabien Sanglard",
+      "published_at": "2012-01-01",
+      "license": "public-blog",
+      "note": "Porting and platform constraints."
+    },
+    {
+      "url": "https://iquilezles.org/articles/distfunctions/",
+      "kind": "blog",
+      "title": "Distance Functions",
+      "author": "Inigo Quilez",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "The reference SDF primitive list."
+    },
+    {
+      "url": "https://iquilezles.org/articles/raymarchingdf/",
+      "kind": "blog",
+      "title": "Raymarching Distance Fields",
+      "author": "Inigo Quilez",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Sphere tracing fundamentals."
+    },
+    {
+      "url": "https://iquilezles.org/articles/smin/",
+      "kind": "blog",
+      "title": "Smooth Minimum",
+      "author": "Inigo Quilez",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Blending SDFs without discontinuities."
+    },
+    {
+      "url": "https://iquilezles.org/articles/fbm/",
+      "kind": "blog",
+      "title": "Fractional Brownian Motion",
+      "author": "Inigo Quilez",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Procedural noise layering."
+    },
+    {
+      "url": "https://iquilezles.org/articles/palettes/",
+      "kind": "blog",
+      "title": "Palettes",
+      "author": "Inigo Quilez",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Cheap procedural colour ramps."
+    },
+    {
+      "url": "https://www.reedbeta.com/blog/depth-precision-visualized/",
+      "kind": "blog",
+      "title": "Depth Precision Visualized",
+      "author": "Nathan Reed",
+      "published_at": "2015-07-03",
+      "license": "public-blog",
+      "note": "Reverse-Z. The canonical reference for depth-buffer artefacts."
+    },
+    {
+      "url": "https://www.reedbeta.com/blog/normals-inverse-transpose-part-1/",
+      "kind": "blog",
+      "title": "Normals and the Inverse Transpose, Part 1",
+      "author": "Nathan Reed",
+      "published_at": "2013-08-30",
+      "license": "public-blog",
+      "note": "Why normals transform differently from positions."
+    },
+    {
+      "url": "https://www.reedbeta.com/blog/on-vector-math-libraries/",
+      "kind": "blog",
+      "title": "On Vector Math Libraries",
+      "author": "Nathan Reed",
+      "published_at": "2013-12-28",
+      "license": "public-blog",
+      "note": "API design tradeoffs in maths libraries."
+    },
+    {
+      "url": "https://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/",
+      "kind": "blog",
+      "title": "Understanding BCn Texture Compression Formats",
+      "author": "Nathan Reed",
+      "published_at": "2012-02-12",
+      "license": "public-blog",
+      "note": "Block compression, memory budgets."
+    },
+    {
+      "url": "https://ciechanow.ski/mesh-transforms/",
+      "kind": "blog",
+      "title": "Mesh Transforms",
+      "author": "Bartosz Ciechanowski",
+      "published_at": "2018-08-14",
+      "license": "public-blog",
+      "note": "Interactive explanation; strong pedagogical contrast to reference docs."
+    },
+    {
+      "url": "https://ciechanow.ski/cameras-and-lenses/",
+      "kind": "blog",
+      "title": "Cameras and Lenses",
+      "author": "Bartosz Ciechanowski",
+      "published_at": "2019-04-23",
+      "license": "public-blog",
+      "note": "Projection, FOV, depth of field from first principles."
+    },
+    {
+      "url": "https://ciechanow.ski/lights-and-shadows/",
+      "kind": "blog",
+      "title": "Lights and Shadows",
+      "author": "Bartosz Ciechanowski",
+      "published_at": "2019-11-05",
+      "license": "public-blog",
+      "note": "Shading fundamentals."
+    },
+    {
+      "url": "https://ciechanow.ski/curves-and-surfaces/",
+      "kind": "blog",
+      "title": "Curves and Surfaces",
+      "author": "Bartosz Ciechanowski",
+      "published_at": "2020-06-15",
+      "license": "public-blog",
+      "note": "Béziers and splines for animation and geometry."
+    },
+    {
+      "url": "https://ciechanow.ski/alpha-compositing/",
+      "kind": "blog",
+      "title": "Alpha Compositing",
+      "author": "Bartosz Ciechanowski",
+      "published_at": "2021-01-13",
+      "license": "public-blog",
+      "note": "Premultiplied alpha; a recurring source of shipped bugs."
+    },
+    {
+      "url": "https://ciechanow.ski/gears/",
+      "kind": "blog",
+      "title": "Gears",
+      "author": "Bartosz Ciechanowski",
+      "published_at": "2020-11-16",
+      "license": "public-blog",
+      "note": "Mechanical simulation intuition."
+    },
+    {
+      "url": "https://guide.handmadehero.org/",
+      "kind": "book",
+      "title": "Handmade Hero — Episode Guide",
+      "author": "Casey Muratori",
+      "published_at": "2014-11-17",
+      "license": "free-online",
+      "note": "Explicitly permitted by the corpus policy. handmadehero.org now redirects to a Molly Rocket landing page; the annotated episode guide is the real deep-linkable index."
+    },
+    {
+      "url": "https://docs.godotengine.org/en/stable/",
+      "kind": "docs",
+      "title": "Godot Engine Documentation (stable)",
+      "author": "Godot Engine contributors",
+      "published_at": null,
+      "license": "CC-BY-3.0",
+      "note": "Openly licensed engine documentation."
+    },
+    {
+      "url": "https://docs.unity3d.com/Manual/index.html",
+      "kind": "docs",
+      "title": "Unity Manual",
+      "author": "Unity Technologies",
+      "published_at": null,
+      "license": "vendor-docs",
+      "note": "Engine documentation. Link-and-quote only, never bulk reproduction."
+    },
+    {
+      "url": "https://blog.molecular-matters.com/",
+      "kind": "blog",
+      "title": "Molecular Musings",
+      "author": "Stefan Reinalter",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Engine internals: memory allocators, job systems, hot reload."
+    },
+    {
+      "url": "https://aras-p.info/blog/",
+      "kind": "blog",
+      "title": "Aras Pranckevičius — blog",
+      "author": "Aras Pranckevičius",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Ex-Unity engine dev. Build times, compression, profiling."
+    },
+    {
+      "url": "https://www.jendrikillner.com/tags/weekly/",
+      "kind": "blog",
+      "title": "Graphics Programming Weekly",
+      "author": "Jendrik Illner",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Curation-of-curation; useful for discovering further permitted sources."
+    },
+    {
+      "url": "https://caseymuratori.com/blog_0015",
+      "kind": "blog",
+      "title": "Semantic Compression",
+      "author": "Casey Muratori",
+      "published_at": "2014-11-01",
+      "license": "public-blog",
+      "note": "Anti-pattern-oriented view of code structure. Direct conflict with Nystrom. Prime disagreement pair."
+    },
+    {
+      "url": "https://github.com/SanderMertens/ecs-faq",
+      "kind": "repo",
+      "title": "ECS FAQ",
+      "author": "Sander Mertens",
+      "published_at": "2020-01-01",
+      "license": "MIT",
+      "note": "Flecs author. The ECS side of the ECS-vs-OOP disagreement."
+    },
+    {
+      "url": "https://github.com/godotengine/godot",
+      "kind": "repo",
+      "title": "Godot Engine source",
+      "author": "Godot Engine contributors",
+      "published_at": "2014-02-10",
+      "license": "MIT",
+      "note": "Open engine source; public issues and design discussions are permitted material."
+    },
+    {
+      "url": "https://github.com/bkaradzic/bgfx",
+      "kind": "repo",
+      "title": "bgfx — cross-platform rendering library",
+      "author": "Branimir Karadžić",
+      "published_at": "2012-01-01",
+      "license": "BSD-2-Clause",
+      "note": "Real-world abstraction over multiple graphics APIs."
+    },
+    {
+      "url": "https://github.com/floooh/sokol",
+      "kind": "repo",
+      "title": "sokol — minimal cross-platform libraries",
+      "author": "Andre Weissflog",
+      "published_at": "2017-01-01",
+      "license": "Zlib",
+      "note": "Counterpoint to heavyweight engines; author writes public design commentary."
+    },
+    {
+      "url": "https://floooh.github.io/",
+      "kind": "blog",
+      "title": "The Brain Dump",
+      "author": "Andre Weissflog",
+      "published_at": null,
+      "license": "public-blog",
+      "thin_ok": true,
+      "note": "API design rationale for sokol; emulator and performance writing. Blog index — short by design."
+    },
+    {
+      "url": "https://randygaul.github.io/",
+      "kind": "blog",
+      "title": "Randy Gaul — blog",
+      "author": "Randy Gaul",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Collision detection and physics engine internals."
+    },
+    {
+      "url": "https://box2d.org/posts/",
+      "kind": "blog",
+      "title": "Box2D — posts",
+      "author": "Erin Catto",
+      "published_at": null,
+      "license": "public-blog",
+      "note": "Solver design from the author of the most widely used 2D physics engine."
+    },
+    {
+      "url": "https://github.com/erincatto/box2d",
+      "kind": "repo",
+      "title": "Box2D source",
+      "author": "Erin Catto",
+      "published_at": "2007-01-01",
+      "license": "MIT",
+      "note": "Constraint solver implementation to pair with the author's posts."
+    },
+    {
+      "url": "https://research.activision.com/publications",
+      "kind": "blog",
+      "title": "Activision Research — publications",
+      "author": "Activision Central Technology",
+      "published_at": null,
+      "license": "public-research",
+      "note": "Publicly released rendering research from a shipping AAA studio."
+    },
+    {
+      "url": "https://www.ea.com/seed/news",
+      "kind": "blog",
+      "title": "SEED — EA research news",
+      "author": "EA SEED",
+      "published_at": null,
+      "license": "public-research",
+      "note": "Publicly published R&D; use published talks/papers only."
+    },
+    {
+      "url": "https://youtube.com/watch?v=4oDtGnQNCx4",
+      "kind": "talk",
+      "title": "Water Rendering in Far Cry 5",
+      "license": "gdc-youtube-free",
+      "note": "In this 2018 GDC session, AMD's Cristian Cutocheras and Ubisoft's Branislav Grujic discuss the Far Cry team's all-new water system that applies to a number of new water materials that allow the artists to create realistic water-based physical features such as waterfalls and lakes"
+    },
+    {
+      "url": "https://youtube.com/watch?v=MdC7L1OloKE",
+      "kind": "talk",
+      "title": "From Shore to Horizon: Creating a Practical Tessellation Based Solution",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, Eidos Montreal's Jean-Normand Bucci and Nicolas Longchamps discuss the techniques behind their Ocean Technology system."
+    },
+    {
+      "url": "https://youtube.com/watch?v=0HeDjOeYqxI",
+      "kind": "talk",
+      "title": "The Latest Graphics Technology in Remedy's Northlight Engine",
+      "license": "gdc-youtube-free",
+      "note": "In this 2018 GDC talk, Remedy's Taatu Aalto discusses the in-engine implementation and results of some recent advances in rendering technology in Remedy's Northlight engine."
+    },
+    {
+      "url": "https://youtube.com/watch?v=7z_EIjNG0pQ",
+      "kind": "talk",
+      "title": "High Dynamic Range Color Grading and Display in Frostbite",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, EA's Alex Fry presents the approach the Frostbite team took to add support for HDR displays."
+    },
+    {
+      "url": "https://youtube.com/watch?v=uYAjUOlEgwI",
+      "kind": "talk",
+      "title": "Geometry Caching Optimizations in Halo 5: Guardians",
+      "license": "gdc-youtube-free",
+      "note": "Geometry Caching Optimizations in Halo 5: Guardians"
+    },
+    {
+      "url": "https://youtube.com/watch?v=EUTE1SoOGrk",
+      "kind": "talk",
+      "title": "The Illusion of Motion: Making Magic with Textures in the Vertex Shader",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC session, Tequila Works' Mario Palmero presents ways to use textures in vertex shaders as a cheaper alternative solution to established methods, and present a new technique for animation pipelines that bypasses the CPU and enables animators to increase bone counts dramatically."
+    },
+    {
+      "url": "https://youtube.com/watch?v=04YUZ3bWAyg",
+      "kind": "talk",
+      "title": "Global Illumination in Tom Clancy's The Division",
+      "license": "gdc-youtube-free",
+      "note": "In this 2016 GDC talk, Ubisoft's Nikolay Stefanov describes the dynamic global illumination system that Ubisoft Massive created for Tom Clancy's The Division."
+    },
+    {
+      "url": "https://youtube.com/watch?v=RAy8UoO2blc",
+      "kind": "talk",
+      "title": "Rendering Rainbow Six Siege",
+      "license": "gdc-youtube-free",
+      "note": "In this 2016 GDC session, Ubisoft Montreal's Jalal Eddine El Mansouri describes the most interesting work done by the R6 graphics team to ship Tom Clancy's Rainbow Six Siege on Xbox One, PS4 and up to 5 year old PCs, while focusing on architectural optimizations that leverages compute that are only possible with the current generation hardware"
+    },
+    {
+      "url": "https://youtube.com/watch?v=RdN06E6Xn9E",
+      "kind": "talk",
+      "title": "Low Complexity, High Fidelity: The Rendering of INSIDE",
+      "license": "gdc-youtube-free",
+      "note": "In this 2016 GDC Europe session, PlayDead's  Mikkel Gjoel and Mikkel Svendsen detail the techniques used to achieve high visual fidelity in the context of the uncompromisingly simplistic aesthetic of INSIDE, Playdead's follow-up to the critically acclaimed LIMBO."
+    },
+    {
+      "url": "https://youtube.com/watch?v=Qq_xX1JCreI",
+      "kind": "talk",
+      "title": "AI Arborist: Proper Cultivation and Care for Your Behavior Trees",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, Bobby Anguelov, Mika Vehkala, and Ben Weber outline core principles to get the most out of your behavior trees while avoiding common issues."
+    },
+    {
+      "url": "https://youtube.com/watch?v=SurYVTMINhg",
+      "kind": "talk",
+      "title": "Tree's Company: Systemic AI Design in Just Cause 3",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC session, Avalanche Studios'  Robert Meyer details exactly what technical designs, interfaces, and methods Avalanche used to keep its AI systemic and robust, yet flexible and controllable enough for content creators."
+    },
+    {
+      "url": "https://youtube.com/watch?v=c06DZ81Tbmk",
+      "kind": "talk",
+      "title": "Hacking into the Combat AI of Watch Dogs 2",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, Ubisoft's Chae Dickie-Clark shows how the NPCs of Watch Dogs 2 efficiently process their environment to select cover and perform other dynamic behaviors thanks to an intricate AI system designed by the Ubisoft team."
+    },
+    {
+      "url": "https://youtube.com/watch?v=VoXSJBVqdek",
+      "kind": "talk",
+      "title": "Taking Back What's Ours: The AI of Dishonored 2",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC session, Arkane Studios' Laurent Couvidou and Xavier Sadoulet explain how the AI of Dishonored 2 was designed for a variety of systems including coordination of multiple NPCs, spatial reasoning for stealth and search, and a data-driven rule system for dialog and animations."
+    },
+    {
+      "url": "https://youtube.com/watch?v=HzhDjbsXA9s",
+      "kind": "talk",
+      "title": "AI & Animation in Assassin's Creed Brotherhood",
+      "license": "gdc-youtube-free",
+      "note": "In this 2011 GDC session, Ubisoft's Nicolas Barbeau and Aleissia Laidacker discuss the AI and animation powering the virtual population of Rome in Assassin's Creed Brotherhood."
+    },
+    {
+      "url": "https://youtube.com/watch?v=IvK0ZlNoxjw",
+      "kind": "talk",
+      "title": "Nuts and Bolts: Modular AI From the Ground Up",
+      "license": "gdc-youtube-free",
+      "note": "In this 2016 GDC panel, programmers Kevin Dill, Christopher Dragert & Troy Humphreys provide a comprehensive exploration of modular AI, from the theoretical underpinnings up to code examples from shipped titles."
+    },
+    {
+      "url": "https://youtube.com/watch?v=RFWrKHM0vAg",
+      "kind": "talk",
+      "title": "Modeling AI Perception and Awareness in Splinter Cell: Blacklist",
+      "license": "gdc-youtube-free",
+      "note": "In this 2014 GDC talk, Ubisoft Toronto's Martin Walsh describes the AI stealth models used on Splinter Cell: Blacklist, the reason for using them, issues that came up, and Ubisoft's overall strategy for giving consistent feedback to the player while maintaining realism."
+    },
+    {
+      "url": "https://youtube.com/watch?v=Z5LMUbjyFQM",
+      "kind": "talk",
+      "title": "Creating Complex AI Behavior in Stellaris Through Data-Driven Design",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, Paradox Interactive's Mehrnaz Amanat Bari covers the design and implementation of data driven AI in Stellaris to create NPCs with unique and non static personalities in a decision based game."
+    },
+    {
+      "url": "https://youtube.com/watch?v=gm7K68663rA",
+      "kind": "talk",
+      "title": "Goal-Oriented Action Planning: Ten Years of AI Programming",
+      "license": "gdc-youtube-free",
+      "note": "In this 2015 GDC talk, AI Programmers Chris Conway, Peter Higley and Eric Jacopin revisit the Goal-Oriented Action Planning method of game AI programming to see how it's held up for the last 10 years, and how it influenced the AI of Middle Earth: Shadow of Mordor and Tomb Raider."
+    },
+    {
+      "url": "https://youtube.com/watch?v=ZlShFdoAOxU",
+      "kind": "talk",
+      "title": "Mind Your Step: Avoiding 3 Common Pitfalls in AI Development",
+      "license": "gdc-youtube-free",
+      "note": "In this 2016 GDC session, Insomniac Games' Jan Mueller challenges 3 common misconceptions about best practices in AI design."
+    },
+    {
+      "url": "https://youtube.com/watch?v=rYQQRIY_zcM",
+      "kind": "talk",
+      "title": "Tom Clancy's The Division: AI Behavior Editing and Debugging",
+      "license": "gdc-youtube-free",
+      "note": "Tom Clancy's The Division features a large number of NPCs with a wide range of complex behaviors. The designers needed to be able to manage the creation, editing and debugging of the NPC AI in an effective, understandable and efficient way. This 2016 lecture from Massive Entertainment's Jonas Gillberg showa how this is made possible using the technology of the Snowdrop engine. This talk includes an introduction to how behavior trees are structured and how their logic works."
+    },
+    {
+      "url": "https://youtube.com/watch?v=pUXS9snrZE4",
+      "kind": "talk",
+      "title": "Can You See Me Now? Building Robust AI Sensory Systems",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, Ubisoft's Eric Martel describes how to construct advanced sensory systems to allow AI to better respond to player inputs."
+    },
+    {
+      "url": "https://youtube.com/watch?v=a09vnDjmY_E",
+      "kind": "talk",
+      "title": "Virtual Insanity: Meta AI on Assassin's Creed: Origins",
+      "license": "gdc-youtube-free",
+      "note": "In this 2018 GDC session, Ubisoft's Charles Lefebvre discusses the creation of Meta AI for Assassin's Creed: Origins and how its objects could be virtual or real, in formations, in conflict, be part of a mission or autonomous, and how they can have a persistent inventory."
+    },
+    {
+      "url": "https://youtube.com/watch?v=Z6oZnDIgio4",
+      "kind": "talk",
+      "title": "Knowledge is Power: An Overview of Knowledge Representation in Game AI",
+      "license": "gdc-youtube-free",
+      "note": "In this 2018 GDC talk, Daniel Brewer and Rez Graham explain best practices for helping video game AI make decisions that will feel impactful to the player."
+    },
+    {
+      "url": "https://archive.org/details/GDC2014Catto",
+      "kind": "blog",
+      "title": "Physics for Game Programmers: Understanding Constraints",
+      "license": "public-web",
+      "note": "This session will be about writing a character controller. Erin will show how to implement a character controller using swept collision and an iterative solver. The solver naturally handles collision priorities using Lagrange multipliers."
+    },
+    {
+      "url": "https://youtube.com/watch?v=Db1AgGavL8E",
+      "kind": "talk",
+      "title": "Supercharged! Vehicle Physics in Skylanders",
+      "license": "gdc-youtube-free",
+      "note": "In this 2016 GDC talk, Vicarious Visions' Jan Erik Steel & Patrick Donnelly  cover how land, sea and air physics handling for Skylanders Superchargers was created, exploring how they managed the complexities of the physical simulation while always striving for a simple and intuitive designer interface and tools."
+    },
+    {
+      "url": "https://youtube.com/watch?v=7_nKOET6zwI",
+      "kind": "talk",
+      "title": "Physics for Game Programmers; Continuous Collision",
+      "license": "gdc-youtube-free",
+      "note": "In this 2013 GDC session, Blizzard Entertainment's Erin Catto explores how to solve collision problems in game programming."
+    },
+    {
+      "url": "https://youtube.com/watch?v=ueEmiDM94IE",
+      "kind": "talk",
+      "title": "It IS Rocket Science! The Physics of Rocket League Detailed",
+      "license": "gdc-youtube-free",
+      "note": "In this 2018 GDC talk, Psyonix's Jared Cone takes viewers through an inside look at the specific game design decisions and implementation details that made the networked physics of Rocket League so successful."
+    },
+    {
+      "url": "https://youtube.com/watch?v=tu-Qe66AvtY",
+      "kind": "talk",
+      "title": "Math for Game Programmers: Juicing Your Cameras With Math",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=6OkhjWUIUf0",
+      "kind": "talk",
+      "title": "Math for Game Programmers: Predictable Projectiles",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC talk, Robot Entertainment's Chris Stark explains the math and code behind predictive linear and ballistic projectile aiming, how to handle practical variations, and best practices for exposing knobs to designers."
+    },
+    {
+      "url": "https://youtube.com/watch?v=LNidsMesxSE",
+      "kind": "talk",
+      "title": "Animation Bootcamp: An Indie Approach to Procedural Animation",
+      "license": "gdc-youtube-free",
+      "note": "In this 2014 GDC session, indie developer David Rosen explains how to use simple procedural techniques to achieve interactive and fluid animations using very few key frames, with examples from indie games like Overgrowth, Receiver and Black Shades."
+    },
+    {
+      "url": "https://youtube.com/watch?v=0jMOONXg29c",
+      "kind": "talk",
+      "title": "Stress-Free Game Development: Powering Up Your Studio With DevOps",
+      "license": "gdc-youtube-free",
+      "note": "In this 2020 GDC Virtual Talk, Butterscotch Shenanigans' Seth Coster walks through how his team learned to use DevOps to get more done while working less."
+    },
+    {
+      "url": "https://youtube.com/watch?v=W3aieHjyNvw",
+      "kind": "talk",
+      "title": "Overwatch Gameplay Architecture and Netcode",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC session, Blizzard's Timothy Ford explains how Overwatch uses the Entity Component System (ECS) architecture to create a rich variety of layered gameplay."
+    },
+    {
+      "url": "https://youtube.com/watch?v=h47zZrqjgLc",
+      "kind": "talk",
+      "title": "I Shot You First: Networking the Gameplay of Halo: Reach",
+      "license": "gdc-youtube-free",
+      "note": "In this 2011 GDC session, Bungie's David Aldridge discusses the programming that drove Halo: Reach's online networking."
+    },
+    {
+      "url": "https://youtube.com/watch?v=_8A2gzRrWLk",
+      "kind": "talk",
+      "title": "Replicating Chaos: Vehicle Replication in Watch Dogs 2",
+      "license": "gdc-youtube-free",
+      "note": "In this 2017 GDC session, Ubisoft Toronto's Matt Delbosc explores the techniques used in Watch Dogs 2 to replicate vehicle trajectories, compensate for network latency, and realistically represent vehicle-versus-vehicle collisions between players."
+    },
+    {
+      "url": "https://youtube.com/watch?v=uDqjIdI4bF4",
+      "kind": "talk",
+      "title": "12 Principles of Animation",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=ym_mNU6DWK8",
+      "kind": "talk",
+      "title": "Satisfying Reloads | The Art in Reload Animations",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=7t0hLZd_8Z4",
+      "kind": "talk",
+      "title": "Animation Bootcamp: The First Person Animation of Overwatch",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=7Dga-UqdBR8",
+      "kind": "talk",
+      "title": "How Overwatch Conveys Character in First Person",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=CXFLu8cityA",
+      "kind": "talk",
+      "title": "The Art of Destiny's First-Person Animation",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=3kTYazhO3fs",
+      "kind": "talk",
+      "title": "How to Animate a Smash Bros Attack",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=dclA9iwZB_s",
+      "kind": "talk",
+      "title": "How Great First-Person Animations are Made - 10 Tips for Animating FPS Characters/Weapons in Blender",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=_1j5Tf6ulII",
+      "kind": "talk",
+      "title": "The Best Animation Tricks of the Trade (For 2016)",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=C7307qRmlMI",
+      "kind": "talk",
+      "title": "50 Game Camera Mistakes",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=doVivf-Nvuo",
+      "kind": "talk",
+      "title": "Creating an Emotionally Engaging Camera for Tomb Raider",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://youtube.com/watch?v=4LTtr45y7P0",
+      "kind": "talk",
+      "title": "30 Things I Hate About Your Game Pitch",
+      "license": "gdc-youtube-free"
+    },
+    {
+      "url": "https://therealpenaz91.itch.io/2dgd-f0th",
+      "kind": "blog",
+      "title": "2D Game Development: From Zero To Hero",
+      "license": "public-web"
+    },
+    {
+      "url": "https://gameaipro.com/",
+      "kind": "blog",
+      "title": "GameAIPro",
+      "license": "public-web"
+    },
+    {
+      "url": "https://pcgbook.com/",
+      "kind": "blog",
+      "title": "Procedural Generation for Games",
+      "license": "public-web"
+    },
+    {
+      "url": "https://gameprogrammingpatterns.com/",
+      "kind": "blog",
+      "title": "Game Programming Partterns",
+      "license": "public-web"
+    },
+    {
+      "url": "https://savas.ca/nomad",
+      "kind": "blog",
+      "title": "Nomad",
+      "license": "public-web",
+      "note": "An example on how to implement ECS"
+    },
+    {
+      "url": "https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md",
+      "kind": "repo",
+      "title": "CppCoreGuidelines",
+      "license": "public-source"
+    },
+    {
+      "url": "https://github.com/lefticus/cppbestpractices",
+      "kind": "repo",
+      "title": "cppbestpractices",
+      "license": "public-source"
+    },
+    {
+      "url": "https://preshing.com/20180116/a-primitive-reflection-system-in-cpp-part-1",
+      "kind": "blog",
+      "title": "A Flexible Reflection System in C++",
+      "license": "public-web"
+    },
+    {
+      "url": "https://paroj.github.io/gltut/index.html",
+      "kind": "blog",
+      "title": "3D Graphics",
+      "license": "public-web"
+    },
+    {
+      "url": "https://learnopengl.com/",
+      "kind": "blog",
+      "title": "learnopengl",
+      "license": "public-web"
+    },
+    {
+      "url": "https://vulkan-tutorial.com/",
+      "kind": "blog",
+      "title": "vulkantuto",
+      "license": "public-web"
+    },
+    {
+      "url": "https://eater.net/quaternions",
+      "kind": "blog",
+      "title": "Quaternions",
+      "license": "public-web"
+    },
+    {
+      "url": "https://github.com/mtdvio/every-programmer-should-know",
+      "kind": "repo",
+      "title": "ProgrammerTricks",
+      "license": "public-source"
+    },
+    {
+      "url": "https://refactoring.guru/design-patterns/catalog",
+      "kind": "blog",
+      "title": "Design Pattern Catalog",
+      "license": "public-web"
+    },
+    {
+      "url": "https://hackerrank.com/",
+      "kind": "blog",
+      "title": "HackerRank",
+      "license": "public-web"
+    },
+    {
+      "url": "https://leetcode.com/",
+      "kind": "blog",
+      "title": "Leetcode",
+      "license": "public-web"
+    },
+    {
+      "url": "https://github.com/skypjack/entt",
+      "kind": "repo",
+      "title": "entt",
+      "license": "public-source",
+      "note": "Gaming meets modern C++ - a fast and reliable entity component system (ECS) and much more. Used in a LOT of commercial projects, including Minecraft."
+    },
+    {
+      "url": "https://github.com/alecthomas/entityx",
+      "kind": "repo",
+      "title": "entityX",
+      "license": "public-source",
+      "note": "EntityX - A fast, type-safe C++ Entity-Component system"
+    },
+    {
+      "url": "https://github.com/LIONant-depot/MECSV2",
+      "kind": "repo",
+      "title": "LIONAnt MECS",
+      "license": "public-source",
+      "note": "Simple multi-core ECS system. Design to leverage a 21 century way of designing software. Speed, size, GPU, CPU all matters. Useful for games and any other type of realtime app."
+    },
+    {
+      "url": "https://github.com/google/corgi",
+      "kind": "repo",
+      "title": "corgi",
+      "license": "public-source",
+      "note": "C++ entity-component system"
+    },
+    {
+      "url": "https://gitlab.com/LIONant/properties",
+      "kind": "repo",
+      "title": "LIONAnt properties",
+      "license": "public-source",
+      "note": "C++ 17 Property System / Reflection System, Useful for games and other applications."
+    },
+    {
+      "url": "https://rttr.org/",
+      "kind": "blog",
+      "title": "rttr",
+      "license": "public-web",
+      "note": "An open source library, which adds reflection to C++"
+    },
+    {
+      "url": "https://github.com/billyquith/ponder",
+      "kind": "repo",
+      "title": "ponder",
+      "license": "public-source",
+      "note": "C++ reflection library with Lua binding, and JSON and XML serialisation."
+    },
+    {
+      "url": "https://github.com/skypjack/meta",
+      "kind": "repo",
+      "title": "meta",
+      "license": "public-source",
+      "note": "Header-only, non-intrusive and macro-free runtime reflection system in C++"
+    },
+    {
+      "url": "https://github.com/qicosmos/iguana",
+      "kind": "repo",
+      "title": "iguana",
+      "license": "public-source",
+      "note": "C++17 Reflection + Serialization / Unserialization. To test"
+    },
+    {
+      "url": "https://github.com/eliasdaler/MetaStuff",
+      "kind": "repo",
+      "title": "MetaStuff",
+      "license": "public-source",
+      "note": "Reflection + Serialization / Unserialization. Embed your own josn lib. To test"
+    },
+    {
+      "url": "https://github.com/USCiLab/cereal",
+      "kind": "repo",
+      "title": "cereal",
+      "license": "public-source",
+      "note": "A C++11 library for serialization, handles JSON and Binary data"
+    },
+    {
+      "url": "https://github.com/Tencent/rapidjson",
+      "kind": "repo",
+      "title": "rapidJson",
+      "license": "public-source",
+      "note": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
+    },
+    {
+      "url": "https://github.com/graeme-hill/crossguid",
+      "kind": "repo",
+      "title": "crossGUID",
+      "license": "public-source",
+      "note": "Lightweight cross platform C++ GUID/UUID library"
+    },
+    {
+      "url": "https://github.com/jtilly/inih",
+      "kind": "repo",
+      "title": "inih",
+      "license": "public-source",
+      "note": "inih (INI Not Invented Here) is a simple .INI file parser written in C."
+    },
+    {
+      "url": "https://github.com/Tessil/hopscotch-map",
+      "kind": "repo",
+      "title": "hopscotch",
+      "license": "public-source",
+      "note": "C++ implementation of a fast hash map and hash set using hopscotch hashing"
+    },
+    {
+      "url": "https://gitlab.com/LIONant/xcore",
+      "kind": "repo",
+      "title": "xCore",
+      "license": "public-source",
+      "note": "Low level C++ 17/20 Core Library for a simulation Engine : GUID generation, fast RTTI support, File access, Basic Mathematics, Multithreading, optimized collections"
+    },
+    {
+      "url": "https://github.com/wc-duck/uuid_h/blob/master/uuid.h",
+      "kind": "repo",
+      "title": "uuid",
+      "license": "public-source",
+      "note": "Single file, STB-style, to generate uuid:s."
+    },
+    {
+      "url": "https://github.com/mobius3/tweeny",
+      "kind": "repo",
+      "title": "tweeny",
+      "license": "public-source",
+      "note": "A modern C++ tweening library"
+    },
+    {
+      "url": "https://gitlab.com/libeigen/eigen",
+      "kind": "repo",
+      "title": "eigen",
+      "license": "public-source",
+      "note": "Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms."
+    },
+    {
+      "url": "https://github.com/g-truc/glm",
+      "kind": "repo",
+      "title": "glm",
+      "license": "public-source",
+      "note": "OpenGL Mathematics (GLM)"
+    },
+    {
+      "url": "https://github.com/DiligentGraphics/DiligentEngine",
+      "kind": "repo",
+      "title": "Diligent Engine",
+      "license": "public-source",
+      "note": "A modern cross-platform low-level graphics library and rendering framework"
+    },
+    {
+      "url": "https://github.com/zeux/meshoptimizer",
+      "kind": "repo",
+      "title": "meshoptimizer",
+      "license": "public-source",
+      "note": "Mesh optimization library that makes meshes smaller and faster to render"
+    },
+    {
+      "url": "https://github.com/assimp/assimp",
+      "kind": "repo",
+      "title": "assimp",
+      "license": "public-source",
+      "note": "Open Asset Import Library, The official Open-Asset-Importer-Library Repository. Loads 40+ 3D-file-formats into one unified and clean data structure."
+    },
+    {
+      "url": "https://github.com/aseprite/freetype2",
+      "kind": "repo",
+      "title": "freetype2",
+      "license": "public-source",
+      "note": "Font rendering Library."
+    },
+    {
+      "url": "https://github.com/nothings/stb",
+      "kind": "repo",
+      "title": "stb",
+      "license": "public-source",
+      "note": "Image loader / writer / resizers / Font rasterizer"
+    },
+    {
+      "url": "https://developer.nvidia.com/physx-sdk",
+      "kind": "blog",
+      "title": "physX",
+      "license": "public-web",
+      "note": "PhysX, NVidia's physic engine, integrated in multiple game engines like Unity and Unreal. Very good library, quite intuitive to integrate"
+    },
+    {
+      "url": "https://github.com/bulletphysics/bullet3",
+      "kind": "repo",
+      "title": "Bullet3",
+      "license": "public-source",
+      "note": "Bullet Physics SDK: real-time collision detection and multi-physics simulation for VR, games, visual effects, robotics, machine learning etc. Implements Continuous Collision Detection, perfect for small & fast moving rigidbodies, like bullets ;)"
+    },
+    {
+      "url": "https://github.com/DanielChappuis/reactphysics3d",
+      "kind": "repo",
+      "title": "ReactPhysics3D",
+      "license": "public-source",
+      "note": "Open source C++ physics engine"
+    },
+    {
+      "url": "https://fmod.com/",
+      "kind": "blog",
+      "title": "FMod",
+      "license": "public-web"
+    },
+    {
+      "url": "https://github.com/mono/mono",
+      "kind": "repo",
+      "title": "Mono",
+      "license": "public-source",
+      "note": "C# script, well known and used (unity script engine), see the next entry on how to embed it in your engine"
+    },
+    {
+      "url": "https://mono-project.com/docs/advanced/embedding",
+      "kind": "blog",
+      "title": "Mono Documentation",
+      "license": "public-web",
+      "note": "Documentation to embed Mono in your engine."
+    },
+    {
+      "url": "https://github.com/volcoma/monopp",
+      "kind": "repo",
+      "title": "Mono Wrapper",
+      "license": "public-source",
+      "note": "A wrapper, to simplify the implementation of Mono as a script system for your engine."
+    },
+    {
+      "url": "https://github.com/LuaJIT/LuaJIT",
+      "kind": "repo",
+      "title": "LuaJIT",
+      "license": "public-source",
+      "note": "Lua Just-In-Time, LUA script system, with acceptable performances, and used in multiple projects"
+    },
+    {
+      "url": "https://github.com/ThePhD/sol2",
+      "kind": "repo",
+      "title": "sol2",
+      "license": "public-source",
+      "note": "Sol3 (sol2 v3.0) - a C++ <-> Lua API wrapper with advanced features and top notch performance"
+    },
+    {
+      "url": "https://github.com/ChaiScript/ChaiScript",
+      "kind": "repo",
+      "title": "ChaiScript",
+      "license": "public-source",
+      "note": "Chaiscript, a EMCScript derivate, easy to integrate in your engine, the syntax of the actual script requires some practice"
+    },
+    {
+      "url": "https://github.com/facebookarchive/RakNet",
+      "kind": "repo",
+      "title": "RakNet",
+      "license": "public-source",
+      "note": "RakNet is a cross platform, open source, C++ networking engine for game programmers."
+    },
+    {
+      "url": "https://github.com/SLikeSoft/SLikeNet",
+      "kind": "repo",
+      "title": "SLikeNet",
+      "license": "public-source",
+      "note": "SLikeNet™ is an Open Source/Free Software cross-platform network engine written in C++ and specifially designed for games (and applications which have comparable requirements on a network engine like games) building upon the discontinued RakNet network engine which had more than 13 years of active development."
+    },
+    {
+      "url": "https://github.com/wolfpld/tracy",
+      "kind": "repo",
+      "title": "Tracy",
+      "license": "public-source",
+      "note": "C++ frame profiler"
+    },
+    {
+      "url": "https://github.com/gabime/spdlog",
+      "kind": "repo",
+      "title": "SPDLog",
+      "license": "public-source",
+      "note": "Fast C++ logging library."
+    },
+    {
+      "url": "https://github.com/baldurk/renderdoc",
+      "kind": "repo",
+      "title": "renderdoc",
+      "license": "public-source",
+      "note": "RenderDoc is a stand-alone graphics debugging tool."
+    },
+    {
+      "url": "https://github.com/foonathan/debug_assert",
+      "kind": "repo",
+      "title": "debug_assert",
+      "license": "public-source",
+      "note": "Simple, flexible and modular assertion macro."
+    },
+    {
+      "url": "https://github.com/glampert/debug-draw",
+      "kind": "repo",
+      "title": "debug_draw",
+      "license": "public-source",
+      "note": "Immediate-mode, renderer agnostic, lightweight debug drawing API."
+    },
+    {
+      "url": "https://github.com/ocornut/imgui",
+      "kind": "repo",
+      "title": "imgui",
+      "license": "public-source",
+      "note": "Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies"
+    },
+    {
+      "url": "https://github.com/Nelarius/imnodes",
+      "kind": "repo",
+      "title": "imNodes",
+      "license": "public-source",
+      "note": "A small, dependency-free node editor for dear imgui"
+    },
+    {
+      "url": "https://github.com/thedmd/imgui-node-editor",
+      "kind": "repo",
+      "title": "imgui-node-editor",
+      "license": "public-source",
+      "note": "Node Editor using ImGui"
+    },
+    {
+      "url": "https://github.com/CedricGuillemet/ImGuizmo",
+      "kind": "repo",
+      "title": "ImGuizmo",
+      "license": "public-source",
+      "note": "Immediate mode 3D gizmo for scene editing and other controls based on Dear Imgui"
+    },
+    {
+      "url": "https://github.com/BrutPitt/imGuIZMO.quat",
+      "kind": "repo",
+      "title": "imGuIZMO.quat",
+      "license": "public-source",
+      "note": "ImGui GIZMO widget - 3D object manipulator / orientator"
+    },
+    {
+      "url": "https://github.com/gallickgunner/ImGui-Addons",
+      "kind": "repo",
+      "title": "ImGui-FileDialog",
+      "license": "public-source",
+      "note": "Cross Platform File Dialog for Dear-ImGui"
+    },
+    {
+      "url": "https://github.com/leiradel/ImGuiAl",
+      "kind": "repo",
+      "title": "ImGuiAl",
+      "license": "public-source",
+      "note": "Additional Widgets for imgui"
+    },
+    {
+      "url": "https://github.com/recastnavigation/recastnavigation",
+      "kind": "repo",
+      "title": "recast",
+      "license": "public-source"
+    },
+    {
+      "url": "https://github.com/Cultrarius/Swarmz",
+      "kind": "repo",
+      "title": "Swarmz",
+      "license": "public-source",
+      "note": "A free, header-only C++ swarming (flocking) library for real-time applications"
+    },
+    {
+      "url": "https://fastbuild.org/docs/features.html",
+      "kind": "blog",
+      "title": "fastbuild",
+      "license": "public-web",
+      "note": "Parallel compilation, distributed compilation, local caching, automatic blobbing. FASTBuild will speed up your compile Time drastically and is very easy to install"
+    },
+    {
+      "url": "https://cppcheck.sourceforge.net/",
+      "kind": "repo",
+      "title": "cppcheck",
+      "license": "public-source",
+      "note": "Cppcheck is a static analysis tool for C/C++ code. It provides unique code analysis to detect bugs and focuses on detecting undefined behaviour and dangerous coding construct"
+    },
+    {
+      "url": "https://github.com/include-what-you-use/include-what-you-use",
+      "kind": "repo",
+      "title": "include-what-you-use",
+      "license": "public-source",
+      "note": "Analyze #includes in C and C++ source files, and removes useless ones. To clean your code, and make compilation faster"
+    },
+    {
+      "url": "https://jetbrains.com/resharper",
+      "kind": "blog",
+      "title": "Resharper",
+      "license": "public-web",
+      "note": "Visual studio Add-on for on the fly Code quality check, easy refactoring, code search options, automatic code standard enforcement."
+    },
+    {
+      "url": "https://premake.github.io/",
+      "kind": "blog",
+      "title": "premake",
+      "license": "public-web",
+      "note": "Simple build configuration tool to automatically generate project/solution files"
+    },
+    {
+      "url": "https://github.com/bkaradzic/genie",
+      "kind": "repo",
+      "title": "GENie",
+      "license": "public-source",
+      "note": "Simple build configuration tool to automatically generate project/solution files, same as premake ;)"
+    },
+    {
+      "url": "https://github.com/nem0/lumixengine",
+      "kind": "repo",
+      "title": "LumixEngine",
+      "license": "public-source"
+    },
+    {
+      "url": "https://github.com/FlaxEngine/FlaxEngine",
+      "kind": "repo",
+      "title": "FlaxEngine",
+      "license": "public-source"
+    },
+    {
+      "url": "https://github.com/urho3d/Urho3D",
+      "kind": "repo",
+      "title": "Urho3D",
+      "license": "public-source"
+    },
+    {
+      "url": "https://github.com/turanszkij/WickedEngine",
+      "kind": "repo",
+      "title": "WickedEngine",
+      "license": "public-source"
+    }
+  ]
+}

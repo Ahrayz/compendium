@@ -1,0 +1,162 @@
+{
+  "question": "Should I use ECS or a traditional object hierarchy?",
+  "answer": "The excerpts don't directly compare ECS to traditional object hierarchies as architectural choices, so I can't give you a definitive answer on which to use.\n\nHowever, they do provide relevant context:\n\n**ECS's claimed advantage:** [2] argues the primary benefit is \"organization\" — composition lets you \"define sensibly repeatable structures\" and build new game objects by combining existing components without writing new logic. [4] adds that ECS \"helps make your code faster by optimizing memory access patterns and making parallelism easier.\"\n\n**But with caveats:** [2] emphasizes that high-performance ECS results depend on specific conditions (archetypal storage patterns) that \"the needs of most real-world game designs do not conform to.\" [3] counters that composition itself isn't unique to ECS — you can achieve it with simpler designs like flags and structs.\n\n**Practical note:** [1] shows that if you *do* use ECS, you can store hierarchies via parent/child components, though this has tradeoffs: component lookups can be slow for low-level systems, or you need frequent sorting for fast iteration.\n\nThe excerpts suggest ECS excels at *organizational clarity*, but warn against adopting it purely for performance benchmarks. Whether it beats a traditional hierarchy depends on your specific game's needs — something these excerpts don't address.",
+  "abstained": false,
+  "citations": [
+    {
+      "marker": 1,
+      "title": "ECS FAQ",
+      "url": "https://github.com/SanderMertens/ecs-faq",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 2,
+      "title": "Archetypal ECS Considered Harmful?",
+      "url": "https://moonside.games/posts/archetypal-ecs-considered-harmful",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 3,
+      "title": "Why I Removed Components From My Game",
+      "url": "https://joshuamanton.substack.com/p/why-i-removed-components-from-my",
+      "timestamp": "-",
+      "transcript_kind": null
+    },
+    {
+      "marker": 4,
+      "title": "bevy_ecs — README",
+      "url": "https://github.com/bevyengine/bevy/blob/main/crates/bevy_ecs/README.md",
+      "timestamp": "-",
+      "transcript_kind": null
+    }
+  ],
+  "terms": [
+    {
+      "term": "ecs",
+      "doc_freq": 0,
+      "kept": true
+    },
+    {
+      "term": "traditional",
+      "doc_freq": 0,
+      "kept": true
+    },
+    {
+      "term": "hierarchy",
+      "doc_freq": 0,
+      "kept": true
+    },
+    {
+      "term": "object",
+      "doc_freq": 821,
+      "kept": false
+    }
+  ],
+  "passages": [
+    {
+      "marker": 1,
+      "title": "ECS FAQ",
+      "url": "https://github.com/SanderMertens/ecs-faq",
+      "timestamp": "-",
+      "matched_terms": 2,
+      "score": 0.0318,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.623
+    },
+    {
+      "marker": 2,
+      "title": "Archetypal ECS Considered Harmful?",
+      "url": "https://moonside.games/posts/archetypal-ecs-considered-harmful",
+      "timestamp": "-",
+      "matched_terms": 2,
+      "score": 0.0308,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.588
+    },
+    {
+      "marker": 3,
+      "title": "Why I Removed Components From My Game",
+      "url": "https://joshuamanton.substack.com/p/why-i-removed-components-from-my",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0274,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.524
+    },
+    {
+      "marker": 4,
+      "title": "bevy_ecs — README",
+      "url": "https://github.com/bevyengine/bevy/blob/main/crates/bevy_ecs/README.md",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0268,
+      "used": true,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.472
+    },
+    {
+      "marker": 5,
+      "title": "Archetypal ECS Considered Harmful?",
+      "url": "https://moonside.games/posts/archetypal-ecs-considered-harmful",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0266,
+      "used": false,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.549
+    },
+    {
+      "marker": 6,
+      "title": "Flecs FAQ",
+      "url": "https://flecs.dev/flecs/md_docs_2FAQ.html",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0257,
+      "used": false,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.482
+    },
+    {
+      "marker": 7,
+      "title": "Data Oriented Design — An Interpretation",
+      "url": "https://blog.s-schoener.com/2019-06-09-data-oriented-design",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0257,
+      "used": false,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.485
+    },
+    {
+      "marker": 8,
+      "title": "CppCoreGuidelines",
+      "url": "https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md",
+      "timestamp": "-",
+      "matched_terms": 1,
+      "score": 0.0253,
+      "used": false,
+      "transcript_kind": null,
+      "found_by": "both",
+      "similarity": 0.477
+    }
+  ],
+  "tokens_in": 4257,
+  "tokens_out": 299,
+  "cost_usd": 0.005752,
+  "elapsed_ms": 8494,
+  "trace": null,
+  "cached": true,
+  "recorded_for_user": "test1"
+}

@@ -1,0 +1,40 @@
+# Build config for the GitHub push trigger.
+#
+# Exists because the trigger sets `serviceAccount` explicitly. When a build runs
+# as a user-specified service account, Cloud Build refuses to use the legacy
+# project-owned logs bucket and demands you choose where logs go — an autodetect
+# trigger has nowhere to express that, so it fails before the first step with
+# "if 'build.service_account' is specified, the build must either...".
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+substitutions:
+  _SERVICE: compendium
+  _REGION: asia-southeast1
+  _IMAGE: asia-southeast1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/compendium
+
+steps:
+  - id: build
+    name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "${_IMAGE}:${SHORT_SHA}", "-t", "${_IMAGE}:latest", "."]
+
+  - id: push
+    name: gcr.io/cloud-builders/docker
+    args: ["push", "--all-tags", "${_IMAGE}"]
+
+  # Deploy by digest-pinned tag. Flags not named here — secrets, the Cloud SQL
+  # instance, max-instances — are retained from the existing service, so this
+  # config doesn't have to restate (and can't silently drop) them.
+  - id: deploy
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image=${_IMAGE}:${SHORT_SHA}
+      - --region=${_REGION}
+
+images:
+  - ${_IMAGE}:${SHORT_SHA}
+  - ${_IMAGE}:latest

@@ -1,0 +1,194 @@
+{
+  "_comment": [
+    "Private corpus for the demo user 'test1'. NOT part of the shared library.",
+    "",
+    "The persona: a working game developer who has been to a few conferences and",
+    "keeps a reading list. These are the talks they sat in and the articles they",
+    "saved — their own material, ingested into their own corpus, searchable only",
+    "by them (migrations/0003_multi_tenant.sql).",
+    "",
+    "Ingest with:  python scripts/ingest.py --manifest corpus/test1_sources.json --owner test1",
+    "",
+    "Chosen so the ECS question has more than one credible answer in it. A corpus",
+    "where every source agrees cannot demonstrate anything about handling",
+    "disagreement — so the critique of the entity-component model is in here",
+    "deliberately, sitting next to the talks that advocate for it.",
+    "",
+    "Everything here is freely published on the open web. Corpus policy still",
+    "applies to the shared library; see README.md.",
+    "Not here on purpose: gamedev.net's 'A Critique of the Entity Component Model' returns 403 to automated fetches. That is the site declining to be crawled, so it stays out. Two other counter-positions cover the same ground.",
+    "Second batch (24 Aug 2026) targets 'how do I optimize performance from externally imported 3D model assets'. Chosen for genuine disagreement: Unity's manual says author an LOD chain, Unreal's Nanite docs say use no LODs at all, and meshoptimizer's author says mesh compression does not improve runtime performance at scale. gamedeveloper.com's 'GPU Performance for Game Artists' was wanted and rejected: its robots.txt disallows ClaudeBot, GPTBot and CCBot with 'Disallow: /'."
+  ],
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=p65Yt20pw0g",
+      "kind": "talk",
+      "title": "A Data Oriented Approach to Using Component Systems (Unity at GDC 2018)",
+      "author": "Mike Acton",
+      "license": "free-youtube",
+      "note": "Attended GDC 2018. The strongest case for the data-oriented reading of ECS."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=0_Byw9UMn9g",
+      "kind": "talk",
+      "title": "Understanding Data-Oriented Design for Entity Component Systems (Unity at GDC 2019)",
+      "author": "Unity Technologies",
+      "license": "free-youtube",
+      "note": "Attended GDC 2019. Explains why the memory layout is the point, not the API."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=u8B3j8rqYMw",
+      "kind": "talk",
+      "title": "Building a Data-Oriented Future",
+      "author": "Mike Acton",
+      "license": "free-youtube",
+      "note": "Saved. The general argument, outside any one engine."
+    },
+    {
+      "url": "https://www.flecs.dev/ecs-faq/",
+      "kind": "docs",
+      "title": "Entity Component System FAQ",
+      "author": "Sander Mertens",
+      "license": "free-online",
+      "note": "The reference text on ECS implementation strategies: archetype vs sparse set vs bitset."
+    },
+    {
+      "url": "https://www.flecs.dev/flecs/md_docs_2FAQ.html",
+      "kind": "docs",
+      "title": "Flecs FAQ",
+      "author": "Sander Mertens",
+      "license": "free-online",
+      "note": "Archetype ECS in practice, from the author of one."
+    },
+    {
+      "url": "https://blog.s-schoener.com/2019-06-09-data-oriented-design/",
+      "kind": "blog",
+      "title": "Data Oriented Design — An Interpretation",
+      "author": "Sebastian Schöner",
+      "license": "free-online",
+      "note": "Saved. Sympathetic but sceptical: separates the cache argument from the ECS argument."
+    },
+    {
+      "url": "https://github.com/bevyengine/bevy/blob/main/crates/bevy_ecs/README.md",
+      "kind": "repo",
+      "title": "bevy_ecs — README",
+      "author": "Bevy contributors",
+      "license": "MIT/Apache-2.0",
+      "note": "A production archetype ECS, documented by its authors."
+    },
+    {
+      "url": "https://github.com/SanderMertens/ecs-faq",
+      "kind": "repo",
+      "title": "ecs-faq — source repository",
+      "author": "Sander Mertens",
+      "license": "MIT",
+      "note": "Saved for the reading list at the bottom."
+    },
+    {
+      "url": "https://moonside.games/posts/archetypal-ecs-considered-harmful/",
+      "kind": "blog",
+      "title": "Archetypal ECS Considered Harmful?",
+      "license": "free-online",
+      "note": "Saved as a counter-position. Argues the benchmark wins belong to archetypal ECS specifically, and are far from universal."
+    },
+    {
+      "url": "https://joshuamanton.substack.com/p/why-i-removed-components-from-my",
+      "kind": "blog",
+      "title": "Why I Removed Components From My Game",
+      "author": "Joshua Manton",
+      "license": "free-online",
+      "note": "Saved as a counter-position. Calls the composition and performance arguments half-truths for games with a known set of object types."
+    },
+    {
+      "url": "https://meshoptimizer.org/",
+      "kind": "docs",
+      "title": "meshoptimizer — mesh optimization library",
+      "author": "Arseny Kapoulkine",
+      "license": "free-online",
+      "note": "Saved. Vertex cache/fetch/overdraw optimisation and simplification, from the author of the library most pipelines use."
+    },
+    {
+      "url": "https://github.com/zeux/meshoptimizer",
+      "kind": "repo",
+      "title": "meshoptimizer — source repository",
+      "author": "Arseny Kapoulkine",
+      "license": "MIT",
+      "note": "Saved. Deliberately kept alongside the site above to exercise near-duplicate detection."
+    },
+    {
+      "url": "https://zeux.io/2025/09/30/billions-of-triangles-in-minutes/",
+      "kind": "blog",
+      "title": "Billions of Triangles in Minutes",
+      "author": "Arseny Kapoulkine",
+      "license": "free-online",
+      "note": "Saved. Cluster LOD generation at scale — what actually costs time when preprocessing imported geometry."
+    },
+    {
+      "url": "https://aras-p.info/blog/2023/02/02/Float-Compression-4-Mesh-Optimizer/",
+      "kind": "blog",
+      "title": "Float Compression 4: Mesh Optimizer",
+      "author": "Aras Pranckevičius",
+      "license": "free-online",
+      "note": "Saved. Measures mesh compression rather than asserting it — separates file size from runtime cost."
+    },
+    {
+      "url": "https://docs.unity3d.com/6000.1/Documentation/Manual/optimizing-draw-calls.html",
+      "kind": "docs",
+      "title": "Unity Manual — Optimizing draw calls",
+      "license": "free-online",
+      "note": "Saved. Batching, instancing, and why reducing triangles does not reduce draw calls."
+    },
+    {
+      "url": "https://docs.unity3d.com/6000.1/Documentation/Manual/LevelOfDetail.html",
+      "kind": "docs",
+      "title": "Unity Manual — Level of Detail (LOD)",
+      "license": "free-online",
+      "note": "Saved. The author-your-own-LOD-chain position."
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine",
+      "kind": "docs",
+      "title": "Nanite Virtualized Geometry in Unreal Engine",
+      "license": "free-online",
+      "note": "Saved as the counter-position: Nanite static meshes use no LODs at all."
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/nanite-technical-details",
+      "kind": "docs",
+      "title": "Nanite Technical Details",
+      "license": "free-online",
+      "note": "Saved. Cluster hierarchy, vertex quantisation, and the fallback mesh — where the import settings actually land."
+    },
+    {
+      "url": "https://gpuopen.com/learn/mesh_shaders/mesh_shaders-index/",
+      "kind": "docs",
+      "title": "Mesh shaders on AMD RDNA graphics cards",
+      "author": "AMD GPUOpen",
+      "license": "free-online",
+      "note": "Saved. The hardware side — why cluster-shaped geometry is the thing modern GPUs want."
+    },
+    {
+      "url": "https://gltf-transform.dev/",
+      "kind": "docs",
+      "title": "glTF Transform",
+      "author": "Don McCurdy",
+      "license": "free-online",
+      "note": "Saved. The practical toolchain for reprocessing an imported glTF: dedup, weld, quantize, compress."
+    },
+    {
+      "url": "https://google.github.io/draco/",
+      "kind": "docs",
+      "title": "Draco 3D data compression",
+      "author": "Google",
+      "license": "free-online",
+      "note": "Saved. The other compression option, so the trade-off against meshopt has both sides present."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RZxo-2cAFk0",
+      "kind": "talk",
+      "title": "Art Optimization: How Fatshark Built Their Central Asset Pipeline",
+      "license": "free-youtube",
+      "note": "Attended. A shipped studio's asset pipeline for Darktide — the production view, not the library view."
+    }
+  ]
+}

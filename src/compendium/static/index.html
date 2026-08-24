@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compendium — game dev answers, with receipts</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .step-line::before{content:'';position:absolute;left:15px;top:34px;bottom:-18px;width:2px;background:#e5e7eb}
+  .step-line:last-child::before{display:none}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+<div class="max-w-3xl mx-auto px-5 py-10">
+
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Compendium</h1>
+    <p class="mt-2 text-slate-600">
+      Ask a game development question. Every claim is traced to a real talk or article,
+      deep-linked to the exact moment. If the library doesn't cover it, it says so.
+    </p>
+    <p id="corpus" class="mt-3 text-sm text-slate-500">loading library…</p>
+  </header>
+
+  <form id="form" class="mb-6">
+    <div class="flex gap-2">
+      <input id="q" type="text" required minlength="3" maxlength="500"
+        placeholder="Should I use ECS or a traditional object hierarchy?"
+        class="flex-1 rounded-lg border border-slate-300 px-4 py-3 text-[15px] shadow-sm
+               focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent">
+      <button id="go" class="rounded-lg bg-slate-900 px-5 py-3 text-white font-medium
+               hover:bg-slate-700 disabled:opacity-40">Ask</button>
+    </div>
+    <div class="mt-3 flex flex-wrap items-center gap-2 text-sm">
+      <label class="text-slate-500">Search</label>
+      <select id="corpusSel" class="rounded-lg border border-slate-300 bg-white px-2 py-1">
+        <option value="test1" selected>the shared library + a demo user's saved sources</option>
+        <option value="">the shared library only</option>
+      </select>
+    </div>
+    <div class="mt-3 flex flex-wrap gap-2 text-sm">
+      <span class="text-slate-500 py-1">Try:</span>
+      <button type="button" class="ex rounded-full border border-slate-300 bg-white px-3 py-1 hover:bg-slate-100"
+        data-q="Should I use ECS or a traditional object hierarchy?">ECS or an object hierarchy?</button>
+      <button type="button" class="ex rounded-full border border-slate-300 bg-white px-3 py-1 hover:bg-slate-100"
+        data-q="How do I optimize performance from externally imported 3D model assets?">Optimising imported 3D assets</button>
+      <button type="button" class="ex rounded-full border border-slate-300 bg-white px-3 py-1 hover:bg-slate-100"
+        data-q="How much should I price my one-off indie game?">One it should refuse</button>
+    </div>
+    <p id="mode" class="mt-2 text-xs text-slate-400"></p>
+  </form>
+
+  <div id="out" class="space-y-4"></div>
+
+  <footer class="mt-14 border-t border-slate-200 pt-5 text-xs text-slate-400">
+    Sources are conference talks and public engineering writing, indexed and deep-linked —
+    never reproduced in full.
+  </footer>
+</div>
+
+<script>
+const out = document.getElementById('out');
+let CHUNKS = 0;
+let SAMPLES = [];
+
+fetch('/corpus').then(r => r.json()).then(c => {
+  CHUNKS = c.chunks;
+  SAMPLES = (c.samples || []).map(s => ({
+    q: s.question.trim().replace(/\s+/g, ' ').toLowerCase(),
+    user: s.user,
+  }));
+  refreshMode();
+  document.getElementById('corpus').textContent =
+    `Library: ${c.sources} sources · ${c.chunks.toLocaleString()} passages · ${(c.tokens/1000).toFixed(0)}k words indexed`;
+}).catch(() => document.getElementById('corpus').textContent = 'library unavailable');
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function step(n, title, subtitle, body) {
+  return `<div class="step-line relative pl-11 pb-1">
+    <div class="absolute left-0 top-0 h-8 w-8 rounded-full bg-slate-900 text-white
+                grid place-items-center text-sm font-semibold">${n}</div>
+    <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="flex items-baseline justify-between gap-3">
+        <h3 class="font-semibold">${title}</h3>
+        <span class="text-xs text-slate-500 shrink-0">${subtitle || ''}</span>
+      </div>
+      ${body}
+    </div></div>`;
+}
+
+function renderTerms(terms) {
+  const kept = terms.filter(t => t.kept), dropped = terms.filter(t => !t.kept);
+  let html = '';
+  if (kept.length) html += `<div class="mt-3 flex flex-wrap gap-1.5">` +
+    kept.map(t => `<span class="rounded bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 text-sm">${esc(t.term)}</span>`).join('') + `</div>`;
+  if (dropped.length) {
+    html += `<p class="mt-3 text-sm text-slate-600">Set aside:</p>
+      <div class="mt-1.5 space-y-1">` + dropped.map(t => {
+      const pct = CHUNKS ? Math.round(100 * t.doc_freq / CHUNKS) : 0;
+      // Two opposite reasons a word is useless, and they need opposite wording:
+      // absent from the library, or so common it appears everywhere.
+      const why = t.doc_freq === 0
+        ? `nothing in the library mentions it`
+        : `appears in ${t.doc_freq.toLocaleString()} of ${CHUNKS.toLocaleString()} passages (${pct}%) — too common to tell them apart`;
+      return `<div class="text-sm text-slate-500">
+        <span class="rounded bg-slate-100 border border-slate-200 px-2 py-0.5 line-through">${esc(t.term)}</span>
+        <span class="ml-2">${why}</span>
+      </div>`;
+    }).join('') + `</div>`;
+  }
+  return html;
+}
+
+// Two different retrievers run: one matches words, one matches meaning. Saying
+// which found a passage is the honest version of "why is this here" — and "both"
+// is worth calling out, because agreement between two unrelated methods is the
+// strongest signal the system has.
+function foundBy(p) {
+  if (p.found_by === 'both') {
+    return `<span class="font-medium text-slate-700">matched the words and the meaning</span>`;
+  }
+  if (p.found_by === 'meaning') {
+    return `found by meaning — no shared words, ${Math.round((p.similarity || 0) * 100)}% similar`;
+  }
+  return `matched ${p.matched_terms} search term${p.matched_terms === 1 ? '' : 's'}`;
+}
+
+function renderPassages(ps) {
+  if (!ps.length) return `<p class="mt-3 text-sm text-slate-600">Nothing in the library matched well enough to stand on.</p>`;
+  return `<div class="mt-3 space-y-2">` + ps.map(p => `
+    <div class="flex items-start gap-3 rounded-lg border ${p.used ? 'border-emerald-200 bg-emerald-50/50' : 'border-slate-200'} p-2.5">
+      <span class="mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-xs font-medium ${p.used ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-600'}">
+        ${p.used ? 'used' : 'not used'}</span>
+      <div class="min-w-0 flex-1">
+        <a href="${esc(p.url)}" target="_blank" rel="noopener"
+           class="text-sm font-medium text-slate-900 hover:underline">${esc(p.title)}</a>
+        <div class="text-xs text-slate-500">
+          ${p.timestamp !== '-' ? `at ${esc(p.timestamp)} · ` : ''}${foundBy(p)}
+          ${p.transcript_kind === 'auto' ? ' · auto-caption' : p.transcript_kind === 'manual' ? ' · human-verified' : ''}
+        </div>
+      </div>
+    </div>`).join('') + `</div>`;
+}
+
+function renderAnswer(d) {
+  const withMarks = esc(d.answer).replace(/\[(\d{1,2})\]/g,
+    '<sup class="ml-0.5 rounded bg-slate-900 px-1 text-[10px] text-white">$1</sup>');
+  let html = `<div class="mt-3 whitespace-pre-wrap leading-relaxed text-[15px]">${withMarks}</div>`;
+  if (d.citations.length) {
+    html += `<div class="mt-4 border-t border-slate-100 pt-3">
+      <p class="text-xs font-medium uppercase tracking-wide text-slate-400">Sources</p>
+      <ul class="mt-2 space-y-1">` + d.citations.map(c => `
+        <li class="text-sm"><span class="text-slate-400">[${c.marker}]</span>
+          <a href="${esc(c.url)}" target="_blank" rel="noopener" class="text-slate-900 hover:underline">${esc(c.title)}</a>
+          ${c.timestamp !== '-' ? `<span class="text-slate-500"> at ${esc(c.timestamp)}</span>` : ''}</li>`).join('') +
+      `</ul></div>`;
+  }
+  return html;
+}
+
+function render(d) {
+  const cost = d.cost_usd != null ? `$${d.cost_usd.toFixed(4)}` : 'n/a';
+  const secs = (d.elapsed_ms / 1000).toFixed(1);
+  const used = d.passages.filter(p => p.used).length;
+
+  // The answer leads. Someone who trusts the system wants the answer, not the
+  // machinery; the machinery is one click away for someone who does not yet.
+  let head;
+  if (d.abstained) {
+    head = `<div class="rounded-xl border border-amber-300 bg-amber-50 p-5">
+      <p class="text-[15px] text-amber-900">${esc(d.answer)}</p>
+      <p class="mt-3 text-sm text-amber-800">
+        Nothing in the library covers this, so it stopped rather than guess —
+        no model call, $0.0000.</p></div>`;
+  } else {
+    head = `<div class="rounded-xl border border-slate-200 bg-white p-5">
+        ${renderAnswer(d)}
+      </div>
+      <div class="px-1 text-xs text-slate-400">
+        ${d.cached
+          ? `saved run · ${d.tokens_in.toLocaleString()} tokens in · ${d.tokens_out.toLocaleString()} out
+             · cost ${cost} when it ran · ${secs}s`
+          : `${d.tokens_in.toLocaleString()} tokens in · ${d.tokens_out.toLocaleString()} out
+             · ${cost} · ${secs}s`}</div>`;
+  }
+
+  const steps =
+    step(1, 'Your question', '', `<p class="mt-2 text-slate-700">${esc(d.question)}</p>`) +
+    step(2, 'Worked out what to search for',
+      `${d.terms.filter(t => t.kept).length} useful word${d.terms.filter(t=>t.kept).length===1?'':'s'}`,
+      renderTerms(d.terms)) +
+    step(3, d.abstained ? 'Searched the library — found nothing solid' : 'Searched the library',
+      d.passages.length ? `${used} of ${d.passages.length} passages used` : 'no usable match',
+      renderPassages(d.passages));
+
+  const summary = d.abstained
+    ? `searched ${CHUNKS.toLocaleString()} passages · declined · ${secs}s`
+    : `searched ${CHUNKS.toLocaleString()} passages · ${used} of ${d.passages.length} used · ${secs}s · ${cost}`;
+
+  out.innerHTML = head + `
+    <details id="trace" class="rounded-xl border border-slate-200 bg-white"${traceOpen() ? ' open' : ''}>
+      <summary class="cursor-pointer select-none px-5 py-3 text-sm text-slate-600
+                      hover:bg-slate-50 rounded-xl">
+        How it got there — <span class="text-slate-400">${summary}</span>
+      </summary>
+      <div class="space-y-4 border-t border-slate-100 p-4">${steps}</div>
+    </details>`;
+
+  // Remember the reader's preference. Someone who closes this once is telling you
+  // they want answers, not machinery; reopening it on every query ignores that.
+  const det = document.getElementById('trace');
+  det.addEventListener('toggle', () => {
+    try { localStorage.setItem('trace', det.open ? '1' : '0'); } catch (e) { /* private mode */ }
+  });
+}
+
+function traceOpen() {
+  // Default open: a first-time reader has no reason to trust the answer yet.
+  try { return localStorage.getItem('trace') !== '0'; } catch (e) { return true; }
+}
+
+// The two examples are answered from a recording of a real run, so a visitor
+// clicking them costs nothing and always sees the same thing. Say so, quietly and
+// always — a product whose claim is "you can see what happened" cannot replay a
+// recording while implying it ran just now. Editing one character runs it live.
+function refreshMode() {
+  const el = document.getElementById('mode');
+  if (!el) return;
+  const q = document.getElementById('q').value.trim().replace(/\s+/g, ' ').toLowerCase();
+  const user = document.getElementById('corpusSel').value || null;
+  const saved = SAMPLES.some(s => s.q === q && (s.user || null) === user);
+  el.textContent = saved
+    ? 'This example is answered from a saved run — free and identical every time. Edit the question to run it live.'
+    : 'Runs live against the model — about $0.005 and a few seconds.';
+}
+
+document.getElementById('q').addEventListener('input', refreshMode);
+document.getElementById('corpusSel').addEventListener('change', refreshMode);
+
+document.querySelectorAll('.ex').forEach(b => b.addEventListener('click', () => {
+  document.getElementById('q').value = b.dataset.q;
+  refreshMode();
+  document.getElementById('form').requestSubmit();
+}));
+
+document.getElementById('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const q = document.getElementById('q').value.trim();
+  const go = document.getElementById('go');
+  go.disabled = true; go.textContent = 'Thinking…';
+  out.innerHTML = `<div class="rounded-xl border border-slate-200 bg-white p-6 text-slate-500">
+    Searching ${CHUNKS.toLocaleString()} passages…</div>`;
+  try {
+    const r = await fetch('/ask', {method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({question: q, user: document.getElementById('corpusSel').value || null})});
+    if (!r.ok) throw new Error(`${r.status}`);
+    render(await r.json());
+  } catch (err) {
+    out.innerHTML = `<div class="rounded-xl border border-red-200 bg-red-50 p-4 text-red-800">
+      Request failed (${esc(err.message)}).</div>`;
+  } finally { go.disabled = false; go.textContent = 'Ask'; }
+});
+</script>
+</body>
+</html>

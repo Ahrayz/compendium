@@ -1,0 +1,46 @@
+# Environments & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+service-account*.json
+gcp-key*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Local data — never commit corpus text (see docs/corpus_policy.md)
+data/
+*.sqlite
+*.db
+scratch/
+
+# Personal documents. Kept on disk, never in git.
+docs/*.pdf
+docs/memory-export.md
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Fetched source cache — raw third-party text, never committed
+.cache/
+
+# Database dumps used to move the corpus to Cloud SQL. 27 MB of embeddings;
+# a build artifact, never source.
+corpus.sql.gz
+*.sql.gz
